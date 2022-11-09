@@ -1,0 +1,21 @@
+
+PREFIX : <http://ex.org/#> 
+prefix xsd: <http://www.w3.org/2001/XMLSchema#> 
+:CarSpecification a :Specification ;
+                          :isAbout :Car;
+                          :hasElement :Requirement1, :Requirement2.
+                         
+:Car :hasPart :CarTank;
+       :hasProperty :CarQualified, :fuelConsumption_per_hundredKilometers.
+:CarTank  :hasProperty :TankLength, :TankWidth, :TankHeight, :TankVolume.
+:Requirement1 :hasCondition :Condition1_1, :Condition1_2 .
+:Condition1_1 :hasSubject :TankVolume;
+                   :hasPredicate :greaterThan;
+                   :hasObject "40"^^xsd:decimal.
+:Condition1_2 :hasSubject :TankVolume;
+                   :hasPredicate :lessThan;
+                   :hasObject "120"^^xsd:decimal.
+:Requirement2 :hasCondition :Condition2_1.
+:Condition2_1 :hasSubject :fuelConsumption_per_hundredKilometers;
+                   :hasPredicate :lessThan;
+                   :hasObject "15"^^xsd:decimal.
