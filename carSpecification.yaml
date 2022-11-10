@@ -1,0 +1,21 @@
+#schema
+Specification:
+          - isAbout:  CoreSubject
+            hasRequirement: 
+                   Condition: rdf:Statement
+
+
+#data
+CarSpecification:
+           - isAbout:  Car
+             hasRequirement: 
+                 -Requirement1:
+                     rdf:Statement
+                  -Requirement2:
+classes:
+           Car:
+               slots:
+                      TankLength          # unit: dm
+                      TankHeight           # unit: dm
+                      TankWidth             # unit: dm
+                      TankVolume: {TankLength * TankHeight * TankWidth}          # unit: litre
